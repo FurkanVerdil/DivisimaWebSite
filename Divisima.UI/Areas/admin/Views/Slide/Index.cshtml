@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Slide>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="row" style="display: block;">
+            <div class="col-md-12 col-sm-12  ">
+                <div class="x_panel">
+                    <div class="col-md-6 col-sm-6">
+                        <h2>Slayt Yönetimi</h2>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <a asp-controller="Slide" asp-action="New" class="btn btn-success float-right" style="color:#fff">Yeni Slayt</a>
+                    </div>
+                    <div class="x_content">
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+
+                                        <th class="column-title">Slogan </th>
+                                        <th class="column-title">Slayt Başlığı </th>
+                                        <th class="column-title">Fiyat </th>
+                                        <th class="column-title">Link </th>
+                                        <th class="column-title">Sıra </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Slide s in Model)
+                                    {
+                                        <tr class="even pointer">
+                                            <td class=" "><a asp-controller="Slide" asp-action="Edit" asp-route-id="@s.ID">@s.Slogan</a></td>
+                                            <td class=" ">@s.Title</td>
+                                            <td class=" ">@s.Price</td>
+                                            <td class=" ">@s.Link</td>
+                                            <td class=" ">@s.DisplayIndex</td>
+                                            <td><a asp-controller="Slide" asp-action="Delete" asp-route-id="@s.ID" class="btn btn-danger">Sil</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

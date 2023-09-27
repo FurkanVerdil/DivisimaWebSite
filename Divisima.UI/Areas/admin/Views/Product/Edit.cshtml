@@ -1,0 +1,102 @@
+﻿@model ProductVM
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Ürün Güncelleme</h2>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <form enctype="multipart/form-data" asp-controller="Product" asp-action="Edit" method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <input type="hidden" asp-for="@Model.Product.ID"/>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Product.Name"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input class="form-control" asp-for="@Model.Product.Name">
+                                    <span asp-validation-for="@Model.Product.Name"></span>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Product.BrandID"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <select class="form-control" asp-for="@Model.Product.BrandID" asp-items="@Model.Brands.Select(x => new SelectListItem{Text = x.Name, Value=x.ID.ToString()})">
+                                        <option value="">Marka Seçiniz</option>
+                                    </select>
+                                    <span asp-validation-for="@Model.Product.BrandID"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Product.BrandID"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <select class="form-control" asp-for="@Model.Product.CategoryID" asp-items="@Model.Categories.Select(x => new SelectListItem{Text = x.Name, Value=x.ID.ToString()})">
+                                        <option value="">Kategori Seçiniz</option>
+                                    </select>
+                                    <span asp-validation-for="@Model.Product.CategoryID"></span>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Product.Price"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input class="form-control" asp-for="@Model.Product.Price">
+                                    <span asp-validation-for="@Model.Product.Price"></span>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Product.Stock"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input class="form-control" asp-for="@Model.Product.Stock">
+                                    <span asp-validation-for="@Model.Product.Stock"></span>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Product.Desription"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input class="form-control" asp-for="@Model.Product.Desription">
+                                    <span asp-validation-for="@Model.Product.Desription"></span>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Product.DisplayIndex"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input class="form-control" asp-for="@Model.Product.DisplayIndex">
+                                    <span asp-validation-for="@Model.Product.DisplayIndex"></span>
+                                </div>
+                            </div>
+
+
+
+                            <div class="ln_solid"></div>
+                            <div class="item form-group">
+                                <div class="col-md-6 col-sm-6 offset-md-3">
+                                    <button class="btn btn-primary" asp-controller="Product" asp-action="Index">İptal</button>
+                                    <button class="btn btn-primary" type="reset">Temizle</button>
+                                    <button type="submit" class="btn btn-success">Ürün Güncelle</button>
+                                </div>
+                            </div>
+                            @Html.AntiForgeryToken()
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- /page content -->

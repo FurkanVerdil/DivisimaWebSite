@@ -1,0 +1,67 @@
+﻿@model ProductPicture
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Yeni ProductPicture Ekle</h2>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <form asp-controller="ProductPicture" asp-action="Edit" method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <input type="hidden" asp-for="@Model.ID"/>
+                            <input type="hidden" asp-for="@Model.ProductID"/>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Name"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input class="form-control" asp-for="@Model.Name">
+                                    <span asp-validation-for="@Model.Name"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Picture"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input class="form-control" asp-for="@Model.Picture" type="file">
+                                    <span asp-validation-for="@Model.Picture"></span>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.DisplayIndex"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input class="form-control" asp-for="@Model.DisplayIndex">
+                                    <span asp-validation-for="@Model.DisplayIndex"></span>
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="ln_solid"></div>
+                            <div class="item form-group">
+                                <div class="col-md-6 col-sm-6 offset-md-3">
+                                    <button class="btn btn-primary" asp-controller="ProductPicture" asp-action="Index">İptal</button>
+                                    <button class="btn btn-primary" type="reset">Temizle</button>
+                                    <button type="submit" class="btn btn-success">Gönder</button>
+                                </div>
+                            </div>
+                           
+
+                            
+
+                            
+                            @Html.AntiForgeryToken()
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- /page content -->

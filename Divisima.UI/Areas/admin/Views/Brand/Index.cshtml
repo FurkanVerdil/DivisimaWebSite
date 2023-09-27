@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Brand>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="row" style="display: block;">
+            <div class="col-md-12 col-sm-12  ">
+                <div class="x_panel">
+                    <div class="col-md-6 col-sm-6">
+                        <h2>Marka Yönetimi</h2>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <a asp-controller="Brand" asp-action="New" class="btn btn-success float-right" style="color:#fff">Yeni Marka</a>
+                    </div>
+                    <div class="x_content">
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+
+                                        <th class="column-title">Marka Adı </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Brand s in Model)
+                                    {
+                                        <tr class="even pointer">
+                                            <td class=" "><a asp-controller="Brand" asp-action="Edit" asp-route-id="@s.ID">@s.Name</a></td>
+                                            <td><a asp-controller="Brand" asp-action="Delete" asp-route-id="@s.ID" class="btn btn-danger">Sil</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+Session, uygulama içerisinde bizim belirlediğimiz bilgileri, belirlenen süre kapsamında anlık olarak tutmaya ve bu tutulan veriye erişmemizi sağlayan yapılardır.
+
+Session'lar server tarafında tutulmaktadır. Örneğin uygulamamızda kullanıcı girişi işlemi yaptık ve başarılı bir şekilde giriş yapıldıysa, kullanıcının bazı bilgilerini (adı soyadı, iskonto bilgisi vb) session içerisinde tutabiliriz ve uygulamada gerekli sayfalarımızda bu Session değerine erişim sağlayarak bazı işlemler yaptırabilir ya da gösterim sağlayabiliriz.
+
+HttpContext.Session.SetString("firma", "Infotech Academy");
+HttpContext.Session.GetString("firma");
+
+builder.Services.AddSession();
+app.UseSession();
+
+
+-------------------------------------------------------------------
+
+Cookie(Çerez) Nedir?
+Cookie; client(istemci) tarafında barındırılan ve içerisinde belirli bilgileri düz metin olarak tutan küçük boyutlu dosyalardır.
+
+Sunucu tarafından gönderilen çerezler, istemci tarafına kaydedilmektedir. Haliyle sayfaya belirli bir süre sonra girildiği vakit istemci tarafından sunucuya çerezler tekrardan gönderilmektedir. Genellikle kullanıcı bilgilerinin tutulduğu çerezlerde her türlü bilgi tutulabilir ve sunucu ile istemci arasında bu bilgiler doğrulandırılabilir.
+
+Burada dikkat edilmesi gereken nokta, her bir internet tarayıcısı(Browser) kendine göre farklı şekilde depolanmaktadır. O yüzden 'x' tarayıcısında kaydedilen, 'y' tarayıcısında barındırılamamaktadır.
+
+Çerezlerde boyut olarak 4KB'lık bir sınır vardır.
+Tarayıcıdan tarayıcıya göre değişse de kullanılabilir çerez sayısı sınırlandırılmıştır.
+
+CookieOptions cookie = new CookieOptions();
+cookie.Expires = DateTime.Now.AddYears(10);
+Response.Cookies.Append("firma", "Infotech Academy", cookie);
+
+string firma = Request.Cookies["firma"]
